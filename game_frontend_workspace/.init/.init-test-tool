@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/tictacweb-55838-75edde25/game_frontend_workspace/game_frontend"
+}

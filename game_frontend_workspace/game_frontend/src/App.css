@@ -1,0 +1,212 @@
+:root {
+  /* Color theme for Tic Tac Toe frontend */
+  --primary: #1976d2;
+  --secondary: #424242;
+  --accent: #ff4081;
+  --text-main: #222222;
+  --ttt-board-bg: #f5f7fe;
+  --ttt-border: #e1e6ef;
+  --ttt-shadow: 0 8px 32px rgba(25, 118, 210, 0.07);
+  --ttt-square-size: 80px;
+  --ttt-square-size-mobile: 60px;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background: #f6f7fa;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* General app structure override */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.navbar {
+  background: var(--primary);
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e5ebf2;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 100;
+  color: white;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+}
+
+.logo-symbol {
+  color: var(--accent);
+  font-size: 1.25em;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Center content under navbar with spacing */
+.ttt-game-wrapper {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+/* Status panel styling */
+.ttt-status-panel {
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 0.7em 1.5em;
+  background: #f0f6fe;
+  border-radius: 9px;
+  border: 1px solid #e8ecf3;
+  box-shadow: 0 2px 8px #e5e5e6bb;
+  min-width: 220px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--secondary);
+}
+
+.ttt-board {
+  background: var(--ttt-board-bg);
+  border-radius: 16px;
+  box-shadow: var(--ttt-shadow);
+  border: 1px solid var(--ttt-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 22px 26px 18px 26px;
+}
+
+.ttt-board-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Board squares (cells) */
+.ttt-square {
+  width: var(--ttt-square-size);
+  height: var(--ttt-square-size);
+  margin: 0 7px 7px 0;
+  font-size: 2.8rem;
+  font-weight: 600;
+  background: transparent;
+  border: 2.4px solid var(--primary);
+  box-shadow: 0 1.5px 8px #eaeff7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  transition: background 0.17s, border-color 0.21s;
+  outline: none;
+  color: var(--secondary);
+  will-change: background;
+}
+.ttt-square:last-child {
+  margin-right: 0;
+}
+.ttt-board-row:last-child .ttt-square {
+  margin-bottom: 0;
+}
+
+.ttt-square:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ttt-square:active {
+  background: #e7eaf2;
+}
+
+.ttt-square[aria-label="Empty cell"]:hover {
+  background: #f9e6f0;
+  border-color: var(--accent);
+}
+
+.ttt-controls {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.16s;
+  box-shadow: 0 1.5px 6px #ffe0f29b;
+}
+.btn:hover,
+.btn:focus {
+  background: #ee4c94;
+  outline: none;
+}
+.btn-large {
+  padding: 13px 30px;
+  font-size: 1.14rem;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .ttt-board {
+    padding: 10px 2px 8px 2px;
+    border-radius: 9px;
+  }
+  .ttt-game-wrapper {
+    margin-top: 77px;
+    gap: 25px;
+  }
+  .ttt-square {
+    width: var(--ttt-square-size-mobile);
+    height: var(--ttt-square-size-mobile);
+    font-size: 2.1rem;
+    border-radius: 6px;
+    margin: 0 4.5px 4.5px 0;
+  }
+  .container {
+    padding: 0 6px;
+  }
+  .ttt-status-panel {
+    font-size: 1.05rem;
+    min-width: 126px;
+    padding: 8px 7px;
+  }
+  .btn-large {
+    padding: 8px 13px;
+    font-size: 1.01rem;
+  }
+}
+
+/* Remove old demo hero, subtitle, and description styles */
+.hero, .subtitle, .title, .description {
+  display: none !important;
+}
